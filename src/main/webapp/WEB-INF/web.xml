@@ -6,13 +6,23 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <servlet>
-        <servlet-name>my-servlet</servlet-name>
-        <servlet-class>epam.ssu.cources.servlet.MyServlet</servlet-class>
+        <servlet-name>showItemServlet</servlet-name>
+        <servlet-class>epam.ssu.cources.servlet.ShowItemServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>my-servlet</servlet-name>
+        <servlet-name>showItemServlet</servlet-name>
         <url-pattern>/items</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addItemServlet</servlet-name>
+        <servlet-class>epam.ssu.cources.servlet.AddItemServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addItemServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 
 </web-app>

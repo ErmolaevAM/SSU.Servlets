@@ -17,6 +17,12 @@ public class Item {
         this.desc = desc;
     }
 
+    public Item(String title, int price, String desc) {
+        this.title = title;
+        this.price = price;
+        this.desc = desc;
+    }
+
     public int getId() {
         return id;
     }
@@ -51,11 +57,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", desc='" + desc + '\'' +
-                '}';
+        return id +":"+title+":"+price+":"+desc+"\n";
     }
 }

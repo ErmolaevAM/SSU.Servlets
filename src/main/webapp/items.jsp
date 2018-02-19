@@ -5,6 +5,12 @@
     <title>Items</title>
 </head>
 <body>
+<div>
+    <a href="/add">Add item</a>
+    |
+    <a href="/items">Show all items</a>
+</div>
+<br>
 <table border="1px black">
     <thead>
     <th width="50px"><h3>ID</h3></th>
