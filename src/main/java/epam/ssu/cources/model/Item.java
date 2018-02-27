@@ -1,8 +1,11 @@
 package epam.ssu.cources.model;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Item {
 
-    private int id;
+    private String id;
 
     private String title;
 
@@ -10,7 +13,8 @@ public class Item {
 
     private String desc;
 
-    public Item(int id, String title, int price, String desc) {
+    @JsonCreator
+    public Item(@JsonProperty("id") String id,@JsonProperty("title") String title,@JsonProperty("price") int price,@JsonProperty("desc") String desc) {
         this.id = id;
         this.title = title;
         this.price = price;
@@ -23,11 +27,11 @@ public class Item {
         this.desc = desc;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
