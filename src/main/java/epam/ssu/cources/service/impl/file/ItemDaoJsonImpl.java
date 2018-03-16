@@ -1,4 +1,4 @@
-package epam.ssu.cources.service.impl;
+package epam.ssu.cources.service.impl.file;
 
 import epam.ssu.cources.model.Item;
 import epam.ssu.cources.service.ItemDAO;
@@ -10,19 +10,20 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class ItemDaoJsonImpl implements ItemDAO {
 
     private File file;
 
-    private String path = "D:\\ermolaxe\\IdeaProjects\\ermolaxe.mock\\WebApp-Servlets\\src\\main\\resources\\items.json";
+    private String path = "D:\\ermolaxe\\github\\SSU.Servlets\\src\\main\\resources\\items.json";
 
     private ObjectMapper mapper;
 
     public ItemDaoJsonImpl(String filename) {
         ClassLoader classLoader = getClass().getClassLoader();
-        file = new File(classLoader.getResource(filename).getFile());
+        file = new File(Objects.requireNonNull(classLoader.getResource(filename)).getFile());
         mapper = new ObjectMapper();
     }
 

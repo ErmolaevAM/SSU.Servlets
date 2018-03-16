@@ -2,8 +2,9 @@ package epam.ssu.cources.servlet;
 
 import epam.ssu.cources.model.Item;
 import epam.ssu.cources.service.ItemDAO;
-import epam.ssu.cources.service.impl.ItemDaoJsonImpl;
-import epam.ssu.cources.service.impl.ItemDaoTxtImpl;
+import epam.ssu.cources.service.impl.database.ItemDaoH2Impl;
+import epam.ssu.cources.service.impl.file.ItemDaoJsonImpl;
+import epam.ssu.cources.service.impl.file.ItemDaoTxtImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,15 +20,21 @@ public class ShowItemServlet extends HttpServlet {
 
     private ItemDAO itemDaoJsonImpl = new ItemDaoJsonImpl("items.json");
 
+    private ItemDAO itemDaoDatabaseImpl = new ItemDaoH2Impl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("items.jsp");
+        List<Item> list;
 
 //        read file from TXT file
-//        req.setAttribute("itemList", itemDaoTxtImpl.getItems());
+//        list = itemDaoTxtImpl.getItems();
 
 //        read data from JSON file
-        List<Item> list = itemDaoJsonImpl.getItems();
+//        list = itemDaoJsonImpl.getItems();
+
+//        read data from database
+        list = itemDaoDatabaseImpl.getItems();
 
         req.setAttribute("itemList", list);
         dispatcher.forward(req, resp);
